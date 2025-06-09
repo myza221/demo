@@ -18,6 +18,7 @@ CREATE TABLE book
 );
 
 CREATE INDEX idx_book_id ON book (ID);
+CREATE INDEX idx_book_author ON book (AUTHOR);
 ```
 
 ## Rest API
