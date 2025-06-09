@@ -3,6 +3,7 @@ Project for API TEST
 
 ## Java 21 (Amazon corretto)
 ## Spring boot 3.5.0
+## Git: https://github.com/myza221/demo.git
 
 ## DB script
 ```
@@ -25,7 +26,8 @@ CREATE INDEX idx_book_author ON book (AUTHOR);
 - GET: /api/books/{author}
 - POST: /api/books/save
 
-## Curl
+## cUrl
+- Import cUrl to Postman
 
 curl --location 'http://localhost:8080/api/books/my' \
 --header 'accept: */*'
