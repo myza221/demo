@@ -38,3 +38,15 @@ curl --location 'http://localhost:8080/api/books/save' \
   "author": "my",
   "publishedDate": "2568-06-09"
 }'
+
+## How to run project
+## Run by IDE
+- Open on Intellij IDEA
+- - run class main
+  - run test (class test controller, service)
+## Build jar and run
+- open terminal
+- cd to project
+- mvn clean install
+- java -jar target/demo-0.0.1-SNAPSHOT.jar
+- mvn test (only unit test)
