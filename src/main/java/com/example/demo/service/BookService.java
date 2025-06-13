@@ -26,7 +26,7 @@ public class BookService {
             BeanUtils.copyProperties(dto, book);
             return bookRepository.save(book);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e.getMessage());
         }
 
         return null;

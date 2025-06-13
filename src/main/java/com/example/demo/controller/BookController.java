@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -43,8 +44,14 @@ public class BookController {
         int year = date.getYear();
         int currentYear = LocalDate.now().getYear();
         if (year > 1000 && year <= currentYear) {
-            response = initResponse(HttpStatus.OK, "");
-            response.setData(bookService.saveBook(dto));
+            Book book = bookService.saveBook(dto);
+            if (ObjectUtils.isEmpty(book)) {
+                response = initResponse(HttpStatus.INTERNAL_SERVER_ERROR,"");
+            } else {
+                response = initResponse(HttpStatus.OK, "");
+            }
+            response.setData(book);
+
         } else {
             response = initResponse(HttpStatus.BAD_REQUEST,"Invalid Date must be year > 1000 and <= current year");
         }
